@@ -90,6 +90,23 @@ class mCommon extends Database
     }
   }
 
+  public static function readTableByType(string $table, $type)
+  {
+    try {
+      $query = "SELECT * FROM `$table` WHERE `comType`=:comType";
+      $dB = static::getdb();
+      $stmt = $dB->prepare($query);
+      $stmt->bindValue(':comType', $type, PDO::PARAM_STR);
+      $stmt->setFetchMode(PDO::FETCH_ASSOC);
+
+      $stmt->execute();
+      return $stmt->fetchAll();
+    } catch (PDOException $e) {
+      $e->getMessage();
+      return false;
+    }
+  }
+
   public static function searchTableByName(string $table, $name)
   {
     try {
