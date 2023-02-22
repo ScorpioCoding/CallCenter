@@ -26,7 +26,8 @@ services:
       - ../html:/var/www/html
     networks:
       - scorpionet
-  # #db
+
+  #db
   calldb:
     container_name: calldb
     platform: linux/x86_64
