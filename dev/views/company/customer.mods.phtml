@@ -1,0 +1,61 @@
+<!-- Create Customer Form -->
+<div id="createCustomer" style="display:none;">
+  <form class="formBox" autocomplete="off">
+    <h3>NEW CUSTOMER FORM</h3>
+    <input type="text" name="userId" id="createUserId" value="<?= $data['userId'] ?>" hidden />
+    <input type="text" name="comType" id="createComType" value="customer" hidden />
+    <div class="group">
+      <label for="comName">Customer Name</label>
+      <input type="text" name="comName" id="createComName">
+    </div>
+    <div class="group">
+      <label for="comEmail">Customer Email</label>
+      <input type="email" name="comEmail" id="createComEmail">
+    </div>
+    <div class="group">
+      <label for="comPhone">Customer Phone</label>
+      <input type="email" name="comPhone" id="createComPhone">
+    </div>
+    <div class="group">
+      <label for="comVat">Customer VAT</label>
+      <input type="email" name="comVat" id="createComVat">
+    </div>
+    <div class="group">
+      <button type="button" onclick="createCustomer()" class=" float mi-10 btn btn-fern">CREATE</button>
+      <button type="button" onclick="hideCreateCustomer()" class=" float btn btn-boston">CANCEL</button>
+    </div>
+  </form>
+</div>
+
+
+
+<!-- Update Customer Form -->
+<div id="updateCustomer" style="display:none;">
+  <form class="formBox" autocomplete="off">
+    <h3>UPDATE CUSTOMER FORM</h3>
+    <input type="text" name="userId" id="updateUserId" value="<?= $data['userId'] ?>" hidden />
+    <input type="text" name="id" id="updateId" hidden />
+    <input type="text" name="comType" id="updateComType" value="customer" hidden />
+    <div class="group">
+      <label for="comName">Customer Name</label>
+      <input type="text" name="comName" id="updateComName">
+    </div>
+    <div class="group">
+      <label for="comEmail">Customer Email</label>
+      <input type="email" name="comEmail" id="updateComEmail">
+    </div>
+    <div class="group">
+      <label for="comPhone">Customer Phone</label>
+      <input type="email" name="comPhone" id="updateComPhone">
+    </div>
+    <div class="group">
+      <label for="comVat">Customer VAT</label>
+      <input type="email" name="comVat" id="updateComVat">
+    </div>
+    <div class="group">
+      <button type="button" onclick="updateCustomer()" class=" float mi-10 btn btn-fern">UPDATE</button>
+      <button type="button" onclick="hideUpdateCustomer()" class=" float btn btn-boston">CANCEL</button>
+    </div>
+  </form>
+
+</div>

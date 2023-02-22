@@ -21,9 +21,9 @@
 
 <body>
   <?php include 'layout/topbar.phtml' ?>
-  <?php if ($data['user_permission'] === 'super') include 'layout/sidebar.super.phtml';  ?>
-  <?php if ($data['user_permission'] === 'admin') include 'layout/sidebar.admin.phtml';  ?>
-  <?php if ($data['user_permission'] === 'user') include 'layout/sidebar.user.phtml';  ?>
+  <?php if ($data['userPermission'] === 'super') include 'layout/sidebar.super.phtml';  ?>
+  <?php if ($data['userPermission'] === 'admin') include 'layout/sidebar.admin.phtml';  ?>
+  <?php if ($data['userPermission'] === 'user') include 'layout/sidebar.user.phtml';  ?>
 
   <?php include $page; ?>
 
@@ -33,7 +33,7 @@
 
 
   <!-- <script src="/js/admin.js" defer></script> -->
-  <script src="/js/<?= $scMetaPath; ?>.js" defer></script>
+  <script type="module" src="/js/<?= $scMetaPath; ?>.js" defer></script>
 </body>
 
 </html>

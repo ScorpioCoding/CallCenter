@@ -1,0 +1,1 @@
+import EasyHTTP from"../EasyHTTP.js";const http=new EasyHTTP;window.openNav=function(){document.getElementById("mySideNav").style.width="300px"},window.closeNav=function(){document.getElementById("mySideNav").style.width="0"};

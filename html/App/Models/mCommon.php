@@ -110,10 +110,10 @@ class mCommon extends Database
   public static function searchTableByName(string $table, $name)
   {
     try {
-      $query = "SELECT * FROM `$table` WHERE `name` LIKE CONCAT('%', :name, '%')";
+      $query = "SELECT * FROM `$table` WHERE `comName` LIKE CONCAT('%', :comName, '%')";
       $dB = static::getdb();
       $stmt = $dB->prepare($query);
-      $stmt->bindValue(':name', $name, PDO::PARAM_STR);
+      $stmt->bindValue(':comName', $name, PDO::PARAM_STR);
       $stmt->setFetchMode(PDO::FETCH_ASSOC);
 
       $stmt->execute();

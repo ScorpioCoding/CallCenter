@@ -1,0 +1,29 @@
+<main>
+
+  <div class="grid grid2">
+    <div class="left">
+
+      <div>
+        <form class="formSearch" action="" method="post">
+          <div class="searchBox">
+            <input type="text" name="searchName" id="searchName" placeholder="Customer Name" value="<?= $data['searchName'] ?>" />
+            <button type="submit"><i class="fa fa-search"></i></button>
+          </div>
+        </form>
+      </div>
+      <?php include 'customer.list.phtml' ?>
+    </div>
+
+    <div class="right container">
+      <?php include 'customer.mods.phtml' ?>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+</main>

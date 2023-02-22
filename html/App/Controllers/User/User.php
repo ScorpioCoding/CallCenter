@@ -33,8 +33,8 @@ class User extends Controller
     //$trans = Translation::translate($args);
     // Extra data
     $data = array();
-    $data['user_permission'] = Auth::getSession('user_permission');
-    $data['user_id'] = Auth::getSession('user_id');
+    $data['userPermission'] = Auth::getSession('user_permission');
+    $data['userId'] = Auth::getSession('user_id');
 
     if (mCommon::testForTable('User')) {
       $user = mCommon::readTable('User');

@@ -1,0 +1,41 @@
+<div class="container">
+  <table>
+    <thead>
+      <tr>
+        <th></th>
+        <th>
+          <h3>CUSTOMER</h3>
+        </th>
+        <th></th>
+        <th></th>
+        <th><button class="float btn btn-boston" onclick="showCreateCustomer()">NEW CUSTOMER</button></th>
+      </tr>
+      <tr>
+        <th style="width: 10%;">id</th>
+        <th style="width: auto;">name</th>
+        <th style="width: 15%;">email</th>
+        <th style="width: 15%;">phone</th>
+        <th style="width: 20px;">actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <?php foreach ($company as $com) : ?>
+        <tr class="row" onclick='showCustomer(<?= json_encode($com); ?> )'>
+          <td><?= $com['id'] ?></td>
+          <td><?= $com['comName'] ?></td>
+          <td><?= $com['comEmail'] ?></td>
+          <td><?= $com['comPhone'] ?></td>
+          <td>
+            <span onclick='showUpdateCustomer( <?= json_encode($com); ?> )'>
+              <i class="fa-solid fa-pen-to-square"></i>
+            </span>
+            <span onclick="showDeleteCustomer(<?= $com['id'] ?>)">
+              <i class="fa-solid fa-trash"></i>
+            </span>
+
+          </td>
+        </tr>
+      <?php endforeach ?>
+    </tbody>
+  </table>
+</div>
