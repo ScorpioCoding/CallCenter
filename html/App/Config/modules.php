@@ -4,5 +4,7 @@ return array(
   'setup'  => ['routes' => 'setup.routes.php'],
   'user'  => ['routes' => 'user.routes.php'],
   'dashboard'  => ['routes' => 'dashboard.routes.php'],
+  'company'  => ['routes' => 'company.routes.php'],
+  'calls'  => ['routes' => 'calls.routes.php'],
 
 );
