@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS Contacts (
   comType ENUM('customer','vendor'),
   comName VARCHAR(255),
   conFullName VARCHAR(255),
-  conGender VARCHAR(50),
+  conGender ENUM('male','female', 'other'),
   conFname VARCHAR(255),
   conLname VARCHAR(255),  
   conEmail VARCHAR(255),
