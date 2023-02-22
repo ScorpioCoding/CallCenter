@@ -11,7 +11,9 @@
     </div>
   <?php endif ?>
 
-  <form class="formBox" action="" method="post">
+  <form class="formBox" action="" method="post" autocomplete="off">
+    <input autocomplete="false" name="hidden" type="text" style="display:none;">
+
     <label for="name">Username</label>
     <input type="text" name="name" id="name" value="<?= $data['name'] ?>" <?= ($data['readonly']) ? 'readonly' : ''; ?> />
 
