@@ -2,8 +2,8 @@ version: "3"
 
 services:
   #nginx
-  beserver:
-    container_name: beserver
+  callserver:
+    container_name: callserver
     image: nginx:stable-alpine
     restart: always
     ports:
@@ -15,8 +15,8 @@ services:
       - scorpionet
 
   #php
-  beapp:
-    container_name: beapp
+  callapp:
+    container_name: callapp
     build:
       context: .
       dockerfile: ./php/Dockerfile
@@ -27,8 +27,8 @@ services:
     networks:
       - scorpionet
   # #db
-  bedb:
-    container_name: bedb
+  calldb:
+    container_name: calldb
     platform: linux/x86_64
     image: mysql:8
     ports:
@@ -36,7 +36,7 @@ services:
     command: --init-file /data/application/init.sql
     volumes:
       - ./mysql/init.sql:/data/application/init.sql
-      - bedata:/var/lib/mysql
+      - calldata:/var/lib/mysql
     restart: always # always restart unless stopped manually
     environment:
       MYSQL_DATABASE: scorpio
@@ -44,8 +44,8 @@ services:
     networks:
       - scorpionet
 
-  beadmin:
-    container_name: beadmin
+  calladmin:
+    container_name: calladmin
     image: phpmyadmin/phpmyadmin
     environment:
       PMA_HOST: scdb
@@ -57,9 +57,9 @@ services:
       - scorpionet
 
 volumes:
-  bedata:
+  calldata:
     driver: local
-    name: bedata
+    name: calldata
 
 networks:
   scorpionet:
