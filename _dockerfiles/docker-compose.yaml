@@ -17,7 +17,7 @@ services:
   #php
   callapp:
     container_name: callapp
-    image: denOldTimer/Calls:0.1
+    image: denoldtimer/calls:0.1
     build:
       context: .
       dockerfile: ./php/Dockerfile
