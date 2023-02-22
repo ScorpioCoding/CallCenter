@@ -1,0 +1,17 @@
+@use '../core/abstracts';
+@use '../core/abstracts/mixins' as mix;
+@use '../core/base';
+@use '../core/components';
+@use '../core/utils';
+@use '../core/layouts';
+
+
+img {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.left {
+  text-align: right;
+}

@@ -1,0 +1,66 @@
+version: "3"
+
+services:
+  #nginx
+  beserver:
+    container_name: beserver
+    image: nginx:stable-alpine
+    restart: always
+    ports:
+      - "6082:80"
+    volumes:
+      - ../html:/var/www/html
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+    networks:
+      - scorpionet
+
+  #php
+  beapp:
+    container_name: beapp
+    build:
+      context: .
+      dockerfile: ./php/Dockerfile
+    restart: always
+    volumes:
+      - ./php/custom.ini:/usr/local/etc/php/conf.d/custom.ini
+      - ../html:/var/www/html
+    networks:
+      - scorpionet
+  # #db
+  bedb:
+    container_name: bedb
+    platform: linux/x86_64
+    image: mysql:8
+    ports:
+      - 6086:3306
+    command: --init-file /data/application/init.sql
+    volumes:
+      - ./mysql/init.sql:/data/application/init.sql
+      - bedata:/var/lib/mysql
+    restart: always # always restart unless stopped manually
+    environment:
+      MYSQL_DATABASE: scorpio
+      MYSQL_ROOT_PASSWORD: r00tadmin
+    networks:
+      - scorpionet
+
+  beadmin:
+    container_name: beadmin
+    image: phpmyadmin/phpmyadmin
+    environment:
+      PMA_HOST: scdb
+      PMA_PORT: 3306
+      PMA_ARBITRARY: 1
+    ports:
+      - 6084:80
+    networks:
+      - scorpionet
+
+volumes:
+  bedata:
+    driver: local
+    name: bedata
+
+networks:
+  scorpionet:
+    name: scorpionet
